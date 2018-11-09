@@ -1,0 +1,9 @@
+(S[SEM=<?det2(?nom2,?vp)>] (NP[NUM='pl', SEM=<?det(?nom)>] (Det[] the) (Nom[NUM='pl', SEM=?nom] (N[NUM='pl'] dogs))) (VP[NUM='pl', SEM=?v] (IV[NUM='pl', TENSE='pres'] bark)) (PUNC[] .))
+(S[SEM=<?det2(?nom2,?vp)>] (NP[NUM='sg', SEM=<?det(?nom)>] (Det[] the) (Nom[NUM='sg', SEM=?nom] (N[NUM='sg'] dog))) (VP[NUM='sg', SEM=?v] (IV[NUM='sg', TENSE='pres'] barks)) (PUNC[] .))
+(S[SEM=<?subj(?vp)>] (NP[AGR=?a] (Det[] the) (N[NUM='sg'] dog)) (VP[NUM='pl', SEM=?v] (IV[NUM='pl', TENSE='pres'] bark)) (PUNC[] .))
+(S[SEM=<?subj(?vp)>] (NP[AGR=?a] (Det[] the) (N[NUM='pl'] dogs)) (VP[NUM='sg', SEM=?v] (IV[NUM='sg', TENSE='pres'] barks)) (PUNC[] .))
+
+
+
+
+

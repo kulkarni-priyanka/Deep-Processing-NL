@@ -1,0 +1,4 @@
+a dog barks
+exists x.(dog(x) & exists e.(barking(e) & barker(e,x)))
+every dog barks
+all x.(dog(x) -> exists e.(barking(e) & barker(e,x)))

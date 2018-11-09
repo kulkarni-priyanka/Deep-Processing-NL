@@ -1,0 +1,87 @@
+% start S
+# ###################
+# Grammar Productions
+# ###################
+
+S[SEM = <?subj(?vp)>] -> NP[NUM=?n,SEM=?subj] VP[NUM=?n,SEM=?vp] PUNC
+
+NP[NUM=?n,SEM=<?det(?nom)> ] -> Det[NUM=?n,SEM=?det]  Nom[NUM=?n,SEM=?nom]
+NP[LOC=?l,NUM=?n,SEM=?np] -> PropN[LOC=?l,NUM=?n,SEM=?np]
+
+Nom[NUM=?n,SEM=?nom] -> N[NUM=?n,SEM=?nom]
+
+VP[NUM=?n,SEM=?v] -> IV[NUM=?n,SEM=?v]
+VP[NUM=?n,SEM=<?v(?obj)>] -> TV[NUM=?n,SEM=?v] NP[SEM=?obj]
+VP[NUM=?n,SEM=<?v(?obj,?pp)>] -> DTV[NUM=?n,SEM=?v] NP[SEM=?obj] PP[+ON,SEM=?pp]
+
+PP[+ON, SEM=?np] -> P[+ON] NP[SEM=?np]
+
+
+
+
+
+
+
+# S expansion productions
+S -> NP[NUM=?n, GENDER =?g] VP[NUM=?n, GENDER = ?g] PUNC
+
+# NP expansion productions
+NP[NUM=?n] -> N[NUM=?n]
+NP[NUM=?n, GENDER=?g] -> PropN[NUM=?n, GENDER=?g]
+NP[NUM=?n] -> Det[NUM=?n] N[NUM=?n]
+NP[NUM=pl] -> N[NUM=pl]
+NP[NUM=?n] -> RefPRP[NUM=?n, GENDER=?g]
+
+# VP expansion productions
+VP[TENSE=?t, NUM=?n] -> IV[TENSE=?t, NUM=?n]
+VP[TENSE=?t, NUM=?n, GENDER =?g] -> TV[TENSE=?t, NUM=?n] NP
+VP[NUM=?n,SEM=<?pp(?vp)>] -> VP[NUM=?n,SEM=?vp] PP[SEM=?pp]
+PP[SEM=<?p(?np)>] -> P[LOC=?l,SEM=?p] NP[LOC=?l,SEM=?np]
+
+
+
+# ###################
+# Lexical Productions
+# ###################
+
+Det[NUM=sg] -> 'this' | 'every'
+Det[NUM=pl] -> 'these' | 'all'
+Det -> 'the' | 'some' | 'several'
+
+PropN[NUM=sg, GENDER =masc]-> 'John'
+PropN[NUM=sg, GENDER =fem]-> 'Mary'
+RefPRP[NUM=sg, GENDER =fem] -> 'herself'
+RefPRP[NUM=sg, GENDER =masc] -> 'himself'
+
+N[NUM=sg] -> 'dog' | 'girl' | 'car' | 'child' | 'cat' | 'book' | 'shelf'
+N[NUM=pl] -> 'dogs' | 'girls' | 'cars' | 'children' | 'cats'
+
+IV[TENSE=pres,  NUM=sg] -> 'disappears' | 'walks' | 'barks'
+TV[TENSE=pres, NUM=sg] -> 'sees' | 'likes' | 'puts'
+
+IV[TENSE=pres,  NUM=pl] -> 'disappear' | 'walk' | 'bark'
+TV[TENSE=pres, NUM=pl] -> 'see' | 'like' | 'put'
+
+IV[TENSE=past] -> 'disappeared' | 'walked'
+TV[TENSE=past] -> 'saw' | 'liked' | 'thought'
+
+PUNC -> '.' | '?'
+
+P[+LOC,SEM=<\X P e.X(\y.(P(e) & in(e,y)))>] -> 'in'
+P[+LOC,SEM=<\X P e.X(\y.(P(e) & on(e,y)))>] -> 'on'
+
+NP[AGR=?a] -> Det[AGR=?a] N[AGR=?a]
+Det[AGR=[NUM=sg, PER=3]] -> 'this' | 'that'
+Det[AGR=[NUM=pl, PER=3]] -> 'these' | 'those'
+Det[AGR=[NUM=pl, PER=1]] -> 'we'
+Det[AGR=[PER=2]] -> 'you'
+
+PropN[-LOC,NUM=sg,SEM=<\P.P(mary)>] -> 'Mary'
+
+Det[NUM=sg,SEM=<\P Q.exists x.(P(x) & Q(x))>] -> 'the'
+DTV[NUM=sg,SEM=<\Y X x.X(\z.Y(\y.put(x,y,z)))>,TNS=pres] -> 'put'
+P[+on] -> 'on'
+N[NUM=sg,SEM=<\x.book(x)>] -> 'book'
+N[NUM=sg,SEM=<\x.shelf(x)>] -> 'shelf'
+
+NP[-LOC, NUM=sg, SEM=<\P.\x.P(x)>] -> 'What'

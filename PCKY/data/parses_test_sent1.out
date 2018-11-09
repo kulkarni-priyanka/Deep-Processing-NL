@@ -1,0 +1,1 @@
+(TOP (S_VP (VB List) (NP (NP (NP_PRIME (NP (DT the) (NNS flights)) (PP (IN from) (NP_NNP Baltimore))) (PP (TO to) (NP_NNP Seattle))) (SBAR (WHNP_WDT that) (S_VP (VBP stop) (PP (IN in) (NP_NNP Minneapolis)))))) (PUNC .))

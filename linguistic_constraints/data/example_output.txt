@@ -1,0 +1,4 @@
+(S[]  (NP[NUM='sg'] (PropN[NUM='sg'] Kim)) (VP[NUM='sg', TENSE='pres'] (TV[NUM='sg', TENSE='pres'] likes)  (NP[NUM='pl'] (N[NUM='pl'] children))))
+
+(S[]  (NP[NUM='sg'] (PropN[NUM='sg'] Kim)) (VP[NUM='sg', TENSE='pres'] (TV[NUM='sg', TENSE='pres'] likes)  (NP[NUM='pl'] (N[NUM='pl'] cats))))
+(S[]  (NP[NUM='pl'] (N[NUM='pl'] children)) (VP[NUM='pl', TENSE='pres'] (TV[NUM='pl', TENSE='pres'] like)   (NP[NUM='sg'] (PropN[NUM='sg'] Kim))))

@@ -1,0 +1,1 @@
+List the flights from Baltimore to Seattle that stop in Minneapolis .

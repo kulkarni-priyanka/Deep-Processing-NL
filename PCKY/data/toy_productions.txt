@@ -1,0 +1,33 @@
+S -> NP VP
+NP -> Det N
+Det -> 'the'
+N -> 'cat'
+VP -> V NP
+V -> 'chased'
+NP -> Det N
+Det -> 'the'
+N -> 'dog'
+S -> NP VP
+NP -> Det N
+Det -> 'a'
+N -> 'dog'
+VP -> V NP
+V -> 'chased'
+NP -> Det N
+Det -> 'a'
+N -> 'cat'
+S -> NP VP
+NP -> Det N
+Det -> 'the'
+N -> 'dog'
+VP -> V NP
+V -> 'chased'
+NP -> NP PP
+NP -> Det N
+Det -> 'a'
+N -> 'cat'
+PP -> P NP
+P -> 'on'
+NP -> Det N
+Det -> 'the'
+N -> 'mat'

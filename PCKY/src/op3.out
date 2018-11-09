@@ -1,0 +1,1 @@
+(TOP (S_VP^<TOP> (S_VP_PRIME^<S_VP> (VB List) (NP^<S_VP_PRIME> (NP_PRIME^<NP> (NP^<NP_PRIME> (DT the) (NNS flights)) (PP^<NP_PRIME> (IN from) (NP_NNP Baltimore))) (PP^<NP> (TO to) (NP_NNP Seattle)))) (NP^<S_VP> (NP_PRIME^<NP> (DT that) (NN stop)) (PP^<NP> (IN in) (NP_NNP Minneapolis)))) (PUNC .))

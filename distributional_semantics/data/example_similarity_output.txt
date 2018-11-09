@@ -1,0 +1,76 @@
+car: the:371 .:271 ,:252 a:138 and:126 of:121 to:111 in:96 was:70 I:50 
+automobile: the:56 .:39 ,:38 of:31 and:25 to:17 in:16 as:13 a:12 is:11 
+car,automobile:0.923169970573
+journey: the:32 of:26 .:25 ,:24 to:21 a:9 and:7 on:6 their:6 he:5 
+voyage: the:23 .:21 of:15 ,:13 a:10 was:9 had:7 and:5 for:5 his:5 
+journey,voyage:0.827707860196
+boy: ,:269 .:263 the:259 a:168 and:121 to:88 of:83 ``:72 was:69 in:67 
+lad: a:7 the:7 .:5 ,:4 of:4 with:3 !:2 He:2 This:2 his:2 
+boy,lad:0.737176454426
+coast: the:64 of:32 .:29 ,:28 and:16 to:14 a:10 was:10 in:7 on:7 
+shore: the:68 ,:42 .:41 and:22 of:19 to:18 on:16 a:12 The:11 '':10 
+coast,shore:0.895122714195
+magician: ,:7 a:5 of:4 and:3 to:3 was:3 it:2 made:2 more:2 two:2 
+wizard: .:3 is:3 not:2 the:2 ,:1 Certainly:1 Dr.:1 Erhart:1 Germany's:1 Hall:1 
+magician,wizard:0.229085483456
+midday: ,:8 the:7 .:3 had:3 alone:2 as:2 could:2 his:2 it:2 out:2 
+noon: the:26 ,:25 and:23 .:22 to:16 at:12 of:12 a:11 was:8 from:6 
+midday,noon:0.625102221767
+furnace: the:14 ,:12 .:9 a:8 to:8 in:6 and:5 had:5 of:4 up:4 
+stove: the:22 ,:16 and:15 .:12 a:9 ;:7 of:7 to:7 by:5 in:5 
+furnace,stove:0.774093654033
+food: ,:154 the:137 .:114 of:96 and:88 to:56 in:48 for:40 a:38 is:26 
+fruit: ,:46 the:35 .:28 of:28 and:22 a:15 in:11 is:10 to:10 that:8 
+food,fruit:0.936186394648
+bird: ,:41 the:24 and:18 of:18 .:16 a:16 ;:9 to:9 or:7 had:6 
+crane: the:2 ,:1 Boulevard:1 Rourke:1 Shayne:1 and:1 drove:1 for:1 from:1 head:1 
+bird,crane:0.373083311835
+tool: the:54 a:31 .:30 ,:24 in:18 of:17 and:16 to:16 with:10 on:9 
+implement: to:6 the:5 and:4 ,:3 ?:2 has:2 its:2 members:2 policy:2 .:1 
+tool,implement:0.573992787738
+brother: ,:112 .:69 the:44 and:42 his:38 of:29 to:27 a:25 was:24 her:21 
+monk: the:19 .:10 ,:8 a:8 of:7 with:6 '':4 and:4 his:4 Shan:3 
+brother,monk:0.668647577612
+crane: the:2 ,:1 Boulevard:1 Rourke:1 Shayne:1 and:1 drove:1 for:1 from:1 head:1 
+implement: to:6 the:5 and:4 ,:3 ?:2 has:2 its:2 members:2 policy:2 .:1 
+crane,implement:0.305304089199
+lad: a:7 the:7 .:5 ,:4 of:4 with:3 !:2 He:2 This:2 his:2 
+brother: ,:112 .:69 the:44 and:42 his:38 of:29 to:27 a:25 was:24 her:21 
+lad,brother:0.627032828792
+journey: the:32 of:26 .:25 ,:24 to:21 a:9 and:7 on:6 their:6 he:5 
+car: the:371 .:271 ,:252 a:138 and:126 of:121 to:111 in:96 was:70 I:50 
+journey,car:0.885820670229
+monk: the:19 .:10 ,:8 a:8 of:7 with:6 '':4 and:4 his:4 Shan:3 
+oracle: the:8 ,:2 ;:2 and:2 of:2 speaks:2 (:1 .:1 In:1 Macbeth:1 
+monk,oracle:0.634371078852
+food: ,:154 the:137 .:114 of:96 and:88 to:56 in:48 for:40 a:38 is:26 
+rooster: ,:5 .:4 a:3 the:3 and:2 it:2 like:2 Dandy:1 David:1 He:1 
+food,rooster:0.701350517735
+coast: the:64 of:32 .:29 ,:28 and:16 to:14 a:10 was:10 in:7 on:7 
+hill: the:83 ,:37 .:30 a:26 and:25 to:16 of:15 on:13 down:10 up:10 
+coast,hill:0.895018234095
+forest: the:55 ,:41 .:28 of:28 and:26 a:19 in:15 to:14 is:13 that:12 
+graveyard: the:13 .:10 '':4 in:4 of:4 to:4 ,:3 ``:3 (:2 ?:2 
+forest,graveyard:0.744642774174
+monk: the:19 .:10 ,:8 a:8 of:7 with:6 '':4 and:4 his:4 Shan:3 
+slave: the:37 .:31 ,:27 to:20 of:18 a:17 was:15 and:12 '':6 he:6 
+monk,slave:0.765067242084
+coast: the:64 of:32 .:29 ,:28 and:16 to:14 a:10 was:10 in:7 on:7 
+forest: the:55 ,:41 .:28 of:28 and:26 a:19 in:15 to:14 is:13 that:12 
+coast,forest:0.883116147181
+lad: a:7 the:7 .:5 ,:4 of:4 with:3 !:2 He:2 This:2 his:2 
+wizard: .:3 is:3 not:2 the:2 ,:1 Certainly:1 Dr.:1 Erhart:1 Germany's:1 Hall:1 
+lad,wizard:0.452341790285
+chord: the:13 a:8 ,:7 of:6 .:5 and:4 at:4 !:2 ;:2 Af:2 
+smile: .:63 ,:59 a:50 the:40 and:28 ``:23 '':22 was:20 to:19 he:18 
+chord,smile:0.695719832458
+glass: the:106 ,:102 .:96 a:70 of:64 and:60 to:34 in:28 was:23 with:22 
+magician: ,:7 a:5 of:4 and:3 to:3 was:3 it:2 made:2 more:2 two:2 
+glass,magician:0.654382276098
+noon: the:26 ,:25 and:23 .:22 to:16 at:12 of:12 a:11 was:8 from:6 
+string: the:17 ,:15 of:15 a:14 .:13 and:12 in:8 to:5 his:4 I:3 
+noon,string:0.792063280216
+rooster: ,:5 .:4 a:3 the:3 and:2 it:2 like:2 Dandy:1 David:1 He:1 
+voyage: the:23 .:21 of:15 ,:13 a:10 was:9 had:7 and:5 for:5 his:5 
+rooster,voyage:0.636974628314
+Correlation:-0.226341950263

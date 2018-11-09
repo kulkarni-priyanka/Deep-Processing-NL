@@ -1,0 +1,62 @@
+% start S
+############################
+# Grammar Rules
+############################
+
+# S expansion productions
+S[SEM = <?subj(?vp)>] -> NP[NUM=?n,SEM=?subj] VP[NUM=?n,SEM=?vp]
+
+# VP expansion productions
+VP[NUM=?n,SEM=?v] -> IV[NUM=?n,SEM=?v]
+VP[NUM=?n,SEM=<?v(?obj)>] -> TV[NUM=?n,SEM=?v] NP[SEM=?obj]
+VP[NUM=?n,SEM=<?conj(?v1,?v2)>] -> IV[NUM=?n,SEM=?v1] CONJ[SEM=?conj] IV[NUM=?n,SEM=?v2]
+VP[NUM=?n,SEM=<?conj(?v1(?obj1),?v2(?obj2))>] -> TV[NUM=?n,SEM=?v1] NP[SEM=?obj1] CONJ[SEM=?conj] TV[NUM=?n,SEM=?v2] NP[SEM=?obj2]
+VP[NUM=?n,SEM=<?conj(?v1(?obj1),?v2)>] -> TV[NUM=?n,SEM=?v1] NP[SEM=?obj1] CONJ[SEM=?conj] IV[NUM=?n,SEM=?v2]
+
+# NP expansion productions
+NP[NUM=?n,SEM=<?det(?nom)> ] -> Det[NUM=?n,SEM=?det]  Nom[NUM=?n,SEM=?nom]
+NP[NUM=?n,SEM=?np] -> PropN[NUM=?n,SEM=?np]
+NP[NUM=?n,SEM=<?conj(?np1,?np2)>] -> PropN[NUM=?n,SEM=?np1] CONJ[SEM=?conj] PropN[NUM=?n,SEM=?np2]
+
+Nom[NUM=?n,SEM=?nom] -> N[NUM=?n,SEM=?nom]
+Nom[NUM=?n,SEM=<?conj(?nom1,?nom2)>] -> N[NUM=?n,SEM=?nom1] CONJ[SEM=?conj] N[NUM=?n,SEM=?nom2]
+
+#Aux
+VP[+neg,NUM=?n,SEM=<app(?v,?vp)>] -> AuxP[NUM=?n,SEM=?v] VP[NUM=pl,SEM=?vp]
+AuxP[NUM=?n,SEM=<app(?neg,?aux)>] -> Aux[NUM=?n,SEM=?aux] Neg[SEM=?neg]
+
+############################
+# Lexical Rules
+############################
+
+PropN[NUM=sg,SEM=<\P.P(John)>] -> 'John'
+PropN[NUM=sg,SEM=<\P.P(Mary)>] -> 'Mary'
+PropN[NUM=sg,SEM=<\P.P(Jack)>] -> 'Jack'
+PropN[NUM=sg,SEM=<\Q. (- exists x.(person(x) & Q(x)))>] -> 'nobody'
+
+Det[NUM=sg,SEM=<\P Q.all x.(P(x) -> Q(x))>] -> 'every'
+Det[NUM=pl,SEM=<\P Q.all x.(P(x) -> Q(x))>] -> 'all'
+Det[NUM=sg,SEM=<\P Q.exists x.(P(x) & Q(x))>] -> 'a'
+Det[NUM=sg,SEM=<\P Q.exists x.(P(x) & Q(x))>] -> 'an'
+Det[NUM=sg,SEM=<\P Q.(- exists x.(P(x) & Q(x)))>] -> 'no'
+
+N[NUM=sg,SEM=<\x.student(x)>] -> 'student'
+N[NUM=pl,SEM=<\x.student(x)>] -> 'students'
+N[NUM=sg,SEM=<\x.sandwich(x)>] -> 'sandwich'
+N[NUM=sg,SEM=<\x.soda(x)>] -> 'soda'
+N[NUM=sg,SEM=<\x.essay(x)>] -> 'essay'
+N[NUM=sg,SEM=<\x.bagel(x)>] -> 'bagel'
+N[NUM=sg,SEM=<\x.person(x)>] -> 'person'
+
+CONJ[SEM=<\X Y.(\S. (X(S) | Y(S)))>] -> 'or'
+Aux[NUM=sg,SEM=<\P x.P(x)>,tns=pres] -> 'does'
+Neg[SEM=<\T P.T(\x.(- P(x)))>] -> 'not'
+
+IV[NUM=sg,SEM=<\x.exists e.(barking(e) & barker(e,x))>] -> 'barks'
+IV[NUM=sg,SEM=<\x.exists e.(eating(e) & eater(e,x))>,TNS=pres] -> 'eats'
+IV[NUM=pl,SEM=<\x.exists e.(eating(e) & eater(e,x))>,TNS=pres] -> 'eat'
+IV[NUM=pl,SEM=<\x.exists e.(drinking(e) & drinker(e,x))>,TNS=pres] -> 'drink'
+
+TV[NUM=sg,SEM=<\X y.X(\x.exists e.(eating(e) & eater(e,y) & eatenthing(e,x)))>,TNS=pres] -> 'eats'
+TV[NUM=sg,SEM=<\X y.X(\x.exists e.(drinking(e) & drinker(e,y) & drinkthing(e,x)))>,TNS=pres] -> 'drinks'
+TV[NUM=sg,SEM=<\X y.X(\x.exists e.(writing(e) & writer(e,y) & writtenthing(e,x)))>,TNS=pres] -> 'writes'

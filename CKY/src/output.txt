@@ -1,0 +1,325 @@
+Scientists rescued a mouse immune system.
+(TOP
+  (NP Scientists)
+  (_X_6
+    (VP
+      (VBD rescued)
+      (NP (Det a) (Nom (Nom mouse) (Nom (ADJP immune) (Nom system)))))
+    (PUNC .)))
+Number of parses: 1
+
+Will this work in humans?
+(TOP
+  (MD Will)
+  (_X_9
+    (NP this)
+    (_X_11 (VP (VB work) (PP (Prep in) (NP humans))) (_X_1 ?))))
+Number of parses: 1
+
+They published their research today online.
+(TOP
+  (NP They)
+  (_X_6
+    (VP
+      (VP (VBD published) (NP (PossPro their) (Nom research)))
+      (ADVP (Adv today) (ADVP online)))
+    (PUNC .)))
+(TOP
+  (NP They)
+  (_X_6
+    (VP
+      (VP
+        (VP (VBD published) (NP (PossPro their) (Nom research)))
+        (ADVP today))
+      (ADVP online))
+    (PUNC .)))
+Number of parses: 2
+
+The immune response is alerted by dendritic cells.
+(TOP
+  (NP (Det The) (Nom (ADJP immune) (Nom response)))
+  (_X_6
+    (VP
+      (AUX is)
+      (VP
+        (VBN alerted)
+        (PP (Prep by) (NP (ADJP dendritic) (Nom cells)))))
+    (PUNC .)))
+Number of parses: 1
+
+They capture infected cells and display fragments of the pathogen.
+(TOP
+  (NP They)
+  (_X_6
+    (VP
+      (VP (VBP capture) (NP (ADJP infected) (Nom cells)))
+      (_X_3
+        (Conj and)
+        (VP
+          (VBP display)
+          (NP
+            (Nom fragments)
+            (PP (Prep of) (NP (Det the) (Nom pathogen)))))))
+    (PUNC .)))
+Number of parses: 1
+
+Dr Jose Villadangos is a researcher of the immune system.
+(TOP
+  (NP (Nom Dr) (Nom (Nom Jose) (Nom Villadangos)))
+  (_X_6
+    (VP
+      (VBZ is)
+      (NP
+        (Det a)
+        (Nom
+          (Nom researcher)
+          (PP
+            (Prep of)
+            (NP (Det the) (Nom (ADJP immune) (Nom system)))))))
+    (PUNC .)))
+(TOP
+  (NP (Nom (Nom Dr) (Nom Jose)) (Nom Villadangos))
+  (_X_6
+    (VP
+      (VBZ is)
+      (NP
+        (Det a)
+        (Nom
+          (Nom researcher)
+          (PP
+            (Prep of)
+            (NP (Det the) (Nom (ADJP immune) (Nom system)))))))
+    (PUNC .)))
+Number of parses: 2
+
+Systemic infections overstimulate dendritic cells. 
+(TOP
+  (NP (ADJP Systemic) (Nom infections))
+  (_X_6
+    (VP (VBP overstimulate) (NP (ADJP dendritic) (Nom cells)))
+    (PUNC .)))
+Number of parses: 1
+
+A new type of vaccine?
+(TOP
+  (NP
+    (Det A)
+    (Nom (ADJP new) (Nom (Nom type) (PP (Prep of) (NP vaccine)))))
+  (PUNC ?))
+(TOP
+  (NP
+    (Det A)
+    (Nom (Nom (ADJP new) (Nom type)) (PP (Prep of) (NP vaccine))))
+  (PUNC ?))
+Number of parses: 2
+
+They injected them with a live vaccine.
+(TOP
+  (NP They)
+  (_X_6
+    (VP
+      (VBD injected)
+      (_X_7
+        (NP them)
+        (PP (Prep with) (NP (Det a) (Nom (ADJP live) (Nom vaccine))))))
+    (PUNC .)))
+Number of parses: 1
+
+The vaccine was made of dendritic cells.
+(TOP
+  (NP (Det The) (Nom vaccine))
+  (_X_6
+    (VP
+      (AUX was)
+      (VP
+        (VBN made)
+        (PP (Prep of) (NP (ADJP dendritic) (Nom cells)))))
+    (PUNC .)))
+Number of parses: 1
+
+They restored immunity in mice with a weak immune system.
+(TOP
+  (NP They)
+  (_X_6
+    (VP
+      (VBD restored)
+      (_X_7
+        (NP immunity)
+        (PP
+          (Prep in)
+          (NP
+            (Nom mice)
+            (PP
+              (Prep with)
+              (NP
+                (Det a)
+                (Nom (ADJP weak) (Nom (ADJP immune) (Nom system)))))))))
+    (PUNC .)))
+(TOP
+  (NP They)
+  (_X_6
+    (VP
+      (VBD restored)
+      (_X_7
+        (NP immunity)
+        (PP
+          (Prep in)
+          (NP
+            (Nom mice)
+            (PP
+              (Prep with)
+              (NP
+                (Det a)
+                (Nom (ADJP (Adj weak) (ADJP immune)) (Nom system))))))))
+    (PUNC .)))
+(TOP
+  (NP They)
+  (_X_6
+    (VP
+      (VBD restored)
+      (NP
+        (Nom immunity)
+        (PP
+          (Prep in)
+          (NP
+            (Nom mice)
+            (PP
+              (Prep with)
+              (NP
+                (Det a)
+                (Nom (ADJP weak) (Nom (ADJP immune) (Nom system)))))))))
+    (PUNC .)))
+(TOP
+  (NP They)
+  (_X_6
+    (VP
+      (VBD restored)
+      (NP
+        (Nom immunity)
+        (PP
+          (Prep in)
+          (NP
+            (Nom mice)
+            (PP
+              (Prep with)
+              (NP
+                (Det a)
+                (Nom (ADJP (Adj weak) (ADJP immune)) (Nom system))))))))
+    (PUNC .)))
+(TOP
+  (NP They)
+  (_X_6
+    (VP
+      (VBD restored)
+      (_X_7
+        (NP (Nom immunity) (PP (Prep in) (NP mice)))
+        (PP
+          (Prep with)
+          (NP
+            (Det a)
+            (Nom (ADJP weak) (Nom (ADJP immune) (Nom system)))))))
+    (PUNC .)))
+(TOP
+  (NP They)
+  (_X_6
+    (VP
+      (VBD restored)
+      (_X_7
+        (NP (Nom immunity) (PP (Prep in) (NP mice)))
+        (PP
+          (Prep with)
+          (NP
+            (Det a)
+            (Nom (ADJP (Adj weak) (ADJP immune)) (Nom system))))))
+    (PUNC .)))
+(TOP
+  (NP They)
+  (_X_6
+    (VP
+      (VBD restored)
+      (NP
+        (Nom (Nom immunity) (PP (Prep in) (NP mice)))
+        (PP
+          (Prep with)
+          (NP
+            (Det a)
+            (Nom (ADJP weak) (Nom (ADJP immune) (Nom system)))))))
+    (PUNC .)))
+(TOP
+  (NP They)
+  (_X_6
+    (VP
+      (VBD restored)
+      (NP
+        (Nom (Nom immunity) (PP (Prep in) (NP mice)))
+        (PP
+          (Prep with)
+          (NP
+            (Det a)
+            (Nom (ADJP (Adj weak) (ADJP immune)) (Nom system))))))
+    (PUNC .)))
+Number of parses: 8
+
+Their immune system was compromised by sepsis.
+(TOP
+  (NP (PossPro Their) (Nom (ADJP immune) (Nom system)))
+  (_X_6
+    (VP (AUX was) (VP (VBN compromised) (PP (Prep by) (NP sepsis))))
+    (PUNC .)))
+Number of parses: 1
+
+In the case of infections, cells alert the immune system.
+(TOP
+  (PP
+    (Prep In)
+    (NP (Det the) (Nom (Nom case) (PP (Prep of) (NP infections)))))
+  (_X_10
+    (COM ,)
+    (_X_14
+      (S
+        (NP cells)
+        (VP
+          (VBP alert)
+          (NP (Det the) (Nom (ADJP immune) (Nom system)))))
+      (PUNC .))))
+Number of parses: 1
+
+The immune system shuts down.
+(TOP
+  (NP (Det The) (Nom (ADJP immune) (Nom system)))
+  (_X_6 (VP (VBZ shuts) (RP down)) (PUNC .)))
+Number of parses: 1
+
+Scientists have discovered that malaria invades the whole body.
+(TOP
+  (NP Scientists)
+  (VP
+    (AUX have)
+    (VP
+      (VBN discovered)
+      (SBAR
+        (_X_2 that)
+        (S
+          (NP malaria)
+          (_X_5
+            (VP
+              (VBZ invades)
+              (NP (Det the) (Nom (ADJP whole) (Nom body))))
+            (PUNC .)))))))
+(TOP
+  (NP Scientists)
+  (_X_6
+    (VP
+      (AUX have)
+      (VP
+        (VBN discovered)
+        (SBAR
+          (_X_2 that)
+          (S
+            (NP malaria)
+            (VP
+              (VBZ invades)
+              (NP (Det the) (Nom (ADJP whole) (Nom body))))))))
+    (PUNC .)))
+Number of parses: 2
+
