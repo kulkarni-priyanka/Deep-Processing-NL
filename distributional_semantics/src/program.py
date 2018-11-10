@@ -6,6 +6,7 @@ from nltk.corpus import stopwords
 import math
 import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
+from scipy.stats.stats import spearmanr
 
 class CollocationMatrix(dict):
     def __init__(self, **kwargs):
@@ -134,35 +135,43 @@ if __name__ == "__main__":
 
                     matrix.add_pair(word_1, word_2)
 
-    vocab_size = len(matrix._word_mapping.keys())
+        vocab_size = len(matrix._word_mapping.keys())
 
     inv_word_map = {v: k for k, v in matrix._word_mapping.items()}
 
     print(vocab_size)
-    ppmi_matrix = np.zeros((vocab_size+1, vocab_size+1))
+    ppmi_matrix = np.zeros((vocab_size, vocab_size ))
 
     vocab = list(matrix._word_mapping.keys())
 
     judgement_vocab = []
+    human_scores = []
 
-    with open(judgement_filename,'r') as hj_file:
+    with open(judgement_filename, 'r') as hj_file:
         judgements = hj_file.readlines()
         for line in judgements:
             line = line.split(sep=',')
             judgement_vocab.append(line[0])
             judgement_vocab.append(line[1])
+            human_scores.append(float(line[2]))
 
-
+    '''
     for word_1 in judgement_vocab:
         for word_2 in vocab:
             if matrix.get_pair(word_1,word_2) > 0:
                 ppmi = calculate_ppmi(word_1, word_2)
-                w_id_1 = matrix.word_id(word_1, store_new=True)
-                w_id_2 = matrix.word_id(word_2, store_new=True)
+                w_id_1 = matrix.word_id(word_1)
+                w_id_2 = matrix.word_id(word_2)
                 ppmi_matrix[w_id_1][w_id_2] = ppmi
 
 
     np.save("ppmi_10K.npy",ppmi_matrix)
+    '''
+
+
+    ppmi_matrix = np.load("ppmi_10K.npy")
+
+    cos_sim_scores = []
 
     with open(output_filename,'w') as op_write:
         with open(judgement_filename,'r') as hj_file:
@@ -171,26 +180,42 @@ if __name__ == "__main__":
                 line = line.split(sep=',')
 
                 word_1 = line[0]
-                w_id_1 = matrix.word_id(word_1, store_new=True)
-                arr_w1 = ppmi_matrix[w_id_1]
-                a1 = arr_w1.argsort()[-10:][::-1]
-                write_feature =""
-                write_feature += word_1+" "
-                for index in a1:
-                    write_feature += inv_word_map[index]+":"+ppmi_matrix[w_id_1][index]+" "
-                op_write(write_feature+"\n")
+                w_id_1 = matrix.word_id(word_1)
+                write_feature = ""
+                write_feature += word_1 + " "
+                if w_id_1:
+                    arr_w1 = ppmi_matrix[w_id_1]
+                    a1 = arr_w1.argsort()[-10:][::-1]
+                    for index in a1:
+                        write_feature += str(inv_word_map[index])+":"+str(ppmi_matrix[w_id_1][index])+" "
+                    op_write.write(write_feature+"\n")
+                else:
+                    a1 = np.zeros(10)
+                    op_write.write(write_feature + "\n")
+
 
                 word_2 = line[1]
-                w_id_2 = matrix.word_id(word_2, store_new=True)
-                arr_w2 = ppmi_matrix[w_id_2]
-                a2 = arr_w2.argsort()[-10:][::-1]
-                write_feature = ""
-                write_feature += word_2 + " "
-                for index in a2:
-                    write_feature += inv_word_map[index] + ":" + ppmi_matrix[w_id_2][index] + " "
-                op_write(write_feature + "\n")
+                w_id_2 = matrix.word_id(word_2)
+                if w_id_2:
+                    arr_w2 = ppmi_matrix[w_id_2]
+                    a2 = arr_w2.argsort()[-10:][::-1]
+                    write_feature = ""
+                    write_feature += word_2 + " "
+                    for index in a2:
+                        write_feature += str(inv_word_map[index]) + ":" + str(ppmi_matrix[w_id_2][index]) + " "
+                    op_write.write(write_feature + "\n")
+                else:
+                    a2 = np.zeros(10)
+                    op_write.write(write_feature + "\n")
 
-                cos_sim = cosine_similarity(ppmi_matrix[w_id_1],ppmi_matrix[w_id_2])
-                op_write(word_1+","+word_2+":"+str(cos_sim)+"\n")
+                if w_id_1 and w_id_2:
+                    cos_sim = cosine_similarity([ppmi_matrix[w_id_1]],[ppmi_matrix[w_id_2]])
+                    cos_sim_scores.append(cos_sim)
+                    op_write.write(word_1+","+word_2+":"+str(cos_sim)+"\n")
+                else:
+                    op_write.write("Out of Vocabulary")
+
+
+
 
     print('Parsing complete')
