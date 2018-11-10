@@ -7,6 +7,7 @@ import math
 import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
 from scipy.stats.stats import spearmanr
+import time
 
 class CollocationMatrix(dict):
     def __init__(self, **kwargs):
@@ -98,124 +99,137 @@ def calculate_freq(w, f):
 if __name__ == "__main__":
 
     if (len(sys.argv) >=2):
-        judgement_filename = sys.argv[1]
-        sentences_filename = sys.argv[2]
+        window = sys.argv[1]
+        weighting = sys.argv[2]
+        judgement_filename = sys.argv[3]
+        output_filename = sys.argv[4]
 
     else:
-
+        window = 2
+        weighting = "PMI"
         judgement_filename = "../data/mc_similarity.txt"
         output_filename = "../data/hw7_output.txt"
         print("Incorrect number of arguments")
 
-    window_size = 3
-    sent_limit = 10000
-    matrix = CollocationMatrix()
-    stopwords = nltk.corpus.stopwords.words('english')
+    start = time.clock()
 
-    brown_sents = nltk.corpus.brown.sents()
+    if weighting in ('FREQ', 'PMI'):
+        window_size = int(window)
+        sent_limit = 10000
+        matrix = CollocationMatrix()
+        stopwords = nltk.corpus.stopwords.words('english')
 
-    for sent in brown_sents[:sent_limit]:
-        sent = [w for w in sent if w.lower() not in stopwords]
-        sent = [w for w in sent if w.lower() not in string.punctuation]
-        for i, word in enumerate(sent):
-            # Increment the count of words we've seen.
-            for j in range(-window_size, window_size + 1):
-                # Skip counting the word itself.
-                if j == 0:
-                    continue
+        brown_sents = nltk.corpus.brown.sents()
 
-                # At the beginning and end of the sentence,
-                # you can either skip counting, or add a
-                # unique "<START>" or "<END>" token to indicate
-                # the word being colocated at the beginning or
-                # end of sentences.
-                if len(sent) > i + j > 0:
-                    word_1 = sent[i].lower()
-                    word_2 = sent[i + j].lower()
+        for sent in brown_sents[:sent_limit]:
+            sent = [w for w in sent if w.lower() not in stopwords]
+            sent = [w for w in sent if w.lower() not in string.punctuation]
+            for i, word in enumerate(sent):
+                # Increment the count of words we've seen.
+                for j in range(-window_size, window_size + 1):
+                    # Skip counting the word itself.
+                    if j == 0:
+                        continue
 
-                    matrix.add_pair(word_1, word_2)
+                    # At the beginning and end of the sentence,
+                    # you can either skip counting, or add a
+                    # unique "<START>" or "<END>" token to indicate
+                    # the word being colocated at the beginning or
+                    # end of sentences.
+                    if len(sent) > i + j > 0:
+                        word_1 = sent[i].lower()
+                        word_2 = sent[i + j].lower()
 
-        vocab_size = len(matrix._word_mapping.keys())
+                        matrix.add_pair(word_1, word_2)
 
-    inv_word_map = {v: k for k, v in matrix._word_mapping.items()}
+            vocab_size = len(matrix._word_mapping.keys())
 
-    print(vocab_size)
-    ppmi_matrix = np.zeros((vocab_size, vocab_size ))
+        inv_word_map = {v: k for k, v in matrix._word_mapping.items()}
 
-    vocab = list(matrix._word_mapping.keys())
+        print(vocab_size)
 
-    judgement_vocab = []
-    human_scores = []
+        weighted_matrix = np.zeros((vocab_size, vocab_size ))
+        vocab = list(matrix._word_mapping.keys())
 
-    with open(judgement_filename, 'r') as hj_file:
-        judgements = hj_file.readlines()
-        for line in judgements:
-            line = line.split(sep=',')
-            judgement_vocab.append(line[0])
-            judgement_vocab.append(line[1])
-            human_scores.append(float(line[2]))
+        judgement_vocab = []
+        human_scores = []
 
-    '''
-    for word_1 in judgement_vocab:
-        for word_2 in vocab:
-            if matrix.get_pair(word_1,word_2) > 0:
-                ppmi = calculate_ppmi(word_1, word_2)
-                w_id_1 = matrix.word_id(word_1)
-                w_id_2 = matrix.word_id(word_2)
-                ppmi_matrix[w_id_1][w_id_2] = ppmi
-
-
-    np.save("ppmi_10K.npy",ppmi_matrix)
-    '''
-
-
-    ppmi_matrix = np.load("ppmi_10K.npy")
-
-    cos_sim_scores = []
-
-    with open(output_filename,'w') as op_write:
-        with open(judgement_filename,'r') as hj_file:
+        with open(judgement_filename, 'r') as hj_file:
             judgements = hj_file.readlines()
             for line in judgements:
                 line = line.split(sep=',')
+                judgement_vocab.append(line[0])
+                judgement_vocab.append(line[1])
+                human_scores.append(float(line[2]))
 
-                word_1 = line[0]
-                w_id_1 = matrix.word_id(word_1)
-                write_feature = ""
-                write_feature += word_1 + " "
-                if w_id_1:
-                    arr_w1 = ppmi_matrix[w_id_1]
-                    a1 = arr_w1.argsort()[-10:][::-1]
-                    for index in a1:
-                        write_feature += str(inv_word_map[index])+":"+str(ppmi_matrix[w_id_1][index])+" "
-                    op_write.write(write_feature+"\n")
-                else:
-                    a1 = np.zeros(10)
-                    op_write.write(write_feature + "\n")
+        if weighting =='PMI':
+
+            for word_1 in judgement_vocab:
+                for word_2 in vocab:
+                    if matrix.get_pair(word_1,word_2) > 0:
+                        ppmi = calculate_ppmi(word_1, word_2)
+                        w_id_1 = matrix.word_id(word_1)
+                        w_id_2 = matrix.word_id(word_2)
+                        weighted_matrix[w_id_1][w_id_2] = ppmi
 
 
-                word_2 = line[1]
-                w_id_2 = matrix.word_id(word_2)
-                if w_id_2:
-                    arr_w2 = ppmi_matrix[w_id_2]
-                    a2 = arr_w2.argsort()[-10:][::-1]
+            np.save("ppmi_10K.npy",weighted_matrix)
+
+        else:
+            for word_1 in judgement_vocab:
+                for word_2 in vocab:
+                    freq = matrix.get_pair(word_1, word_2)
+                    if freq > 0:
+                        w_id_1 = matrix.word_id(word_1)
+                        w_id_2 = matrix.word_id(word_2)
+                        weighted_matrix[w_id_1][w_id_2] = freq
+
+            np.save("freq_10K.npy", weighted_matrix)
+
+        cos_sim_scores = []
+        with open(output_filename,'w') as op_write:
+            with open(judgement_filename,'r') as hj_file:
+                judgements = hj_file.readlines()
+                for line in judgements:
+                    line = line.split(sep=',')
+
+                    word_1 = line[0]
+                    w_id_1 = matrix.word_id(word_1)
                     write_feature = ""
-                    write_feature += word_2 + " "
-                    for index in a2:
-                        write_feature += str(inv_word_map[index]) + ":" + str(ppmi_matrix[w_id_2][index]) + " "
-                    op_write.write(write_feature + "\n")
-                else:
-                    a2 = np.zeros(10)
-                    op_write.write(write_feature + "\n")
-
-                if w_id_1 and w_id_2:
-                    cos_sim = cosine_similarity([ppmi_matrix[w_id_1]],[ppmi_matrix[w_id_2]])
-                    cos_sim_scores.append(cos_sim)
-                    op_write.write(word_1+","+word_2+":"+str(cos_sim)+"\n")
-                else:
-                    op_write.write("Out of Vocabulary")
+                    write_feature += word_1 + " "
+                    if w_id_1:
+                        arr_w1 = weighted_matrix[w_id_1]
+                        a1 = arr_w1.argsort()[-10:][::-1]
+                        for index in a1:
+                            write_feature += str(inv_word_map[index])+":"+str(weighted_matrix[w_id_1][index])+" "
+                        op_write.write(write_feature+"\n")
+                    else:
+                        a1 = np.zeros(10)
+                        op_write.write(write_feature + "\n")
 
 
+                    word_2 = line[1]
+                    w_id_2 = matrix.word_id(word_2)
+                    if w_id_2:
+                        arr_w2 = weighted_matrix[w_id_2]
+                        a2 = arr_w2.argsort()[-10:][::-1]
+                        write_feature = ""
+                        write_feature += word_2 + " "
+                        for index in a2:
+                            write_feature += str(inv_word_map[index]) + ":" + str(weighted_matrix[w_id_2][index]) + " "
+                        op_write.write(write_feature + "\n")
+                    else:
+                        a2 = np.zeros(10)
+                        op_write.write(write_feature + "\n")
 
+                    if w_id_1 and w_id_2:
+                        cos_sim = cosine_similarity([weighted_matrix[w_id_1]],[weighted_matrix[w_id_2]])
+                        cos_sim_scores.append(cos_sim)
+                        op_write.write(word_1+","+word_2+":"+str(cos_sim)+"\n")
+                    else:
+                        op_write.write("Out of Vocabulary"+"\n")
+    else:
+        print("Incorrect weighting option")
 
     print('Parsing complete')
+    print("Time taken :" + str(time.clock() - start))
