@@ -1,0 +1,18 @@
+necktie.n.01		tie	jacket,suit
+suit.n.01 (of clothes)	suit	jacket,tie
+head.n.01 (upper body)	head	body,hand,eye,voice
+hand.n.01 (extremity)	hand	body,head,eye,voice
+buttocks.n.01 (body part)	seat	body,head,eye,voice
+doctor.n.01 (medical)	doctor	nurse,lawyer
+lawyer.n.01		lawyer	doctor,nurse
+lookout.n.01 (lookout man)	lookout	thief,mugging,chase,burglar
+line.n.05 (text)	   	line	plot,cast,title,character
+plot.n.03 (story)		plot	line,cast,title,character
+line.n.05 (text)		line	news,lot,joke,half,hour,show,cast,brainstorm
+line.n.05 (text)		line 	essay,title
+line.n.22 (product)	line	goods,sales,business,delivery
+line.n.18 (cord)		line	roll,cloth,kit,length,cod,hook
+line.n.05 (text)		line	writing,typewriting,manuscript,headline,copy
+telephone_line.n.02 (telephone)	line	telephone,hotline
+telephone_line.n.02 (telephone)	line	telephone,computer,facsimile,plug
+line.n.22 (product)	line 	protein,molecule,material,product

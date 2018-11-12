@@ -1,0 +1,30 @@
+(tie, jacket, 6.7417934959) (tie, suit, 6.7417934959)
+necktie.n.01
+(suit, jacket, 6.7417934959) (suit, tie, 6.7417934959)
+suit.n.01
+car,automobile:0.923169970573
+journey,voyage:0.827707860196
+boy,lad:0.737176454426
+coast,shore:0.895122714195
+magician,wizard:0.229085483456
+midday,noon:0.625102221767
+furnace,stove:0.774093654033
+food,fruit:0.936186394648
+bird,crane:0.373083311835
+tool,implement:0.573992787738
+brother,monk:0.668647577612
+crane,implement:0.305304089199
+lad,brother:0.627032828792
+journey,car:0.885820670229
+monk,oracle:0.634371078852
+food,rooster:0.701350517735
+coast,hill:0.895018234095
+forest,graveyard:0.744642774174
+monk,slave:0.765067242084
+coast,forest:0.883116147181
+lad,wizard:0.452341790285
+chord,smile:0.695719832458
+glass,magician:0.654382276098
+noon,string:0.792063280216
+rooster,voyage:0.636974628314
+Correlation:-0.226341950263
