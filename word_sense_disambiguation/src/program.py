@@ -9,8 +9,8 @@ from sklearn.metrics.pairwise import cosine_similarity
 from scipy.stats.stats import spearmanr
 import time
 
-
-def reznik(self, wordSynset, contextSynset):
+'''
+def get_reznik_similarity(wordSynset, contextSynset):
     if wordSynset.pos != noun:
         return (0, None)
 
@@ -44,7 +44,7 @@ def reznik(self, wordSynset, contextSynset):
             maxSubsumer = subsumer
 
     return (maxValue, maxSubsumer)
-
+'''
 
 
 
@@ -77,7 +77,27 @@ if __name__ == "__main__":
             wordSynsets = wn.synsets(probe_word)
 
             for noun_group in noun_groups:
-                break
+                max_value = 0
+                max_probe_synset = None
+                max_context_synset = None
+                max_ic_subsumer = None
+
+                ngSynsets = wn.synsets(noun_group)
+
+                for ws in wordSynsets:
+                    for ns in ngSynsets:
+                        (value,sub) = get_reznik_similarity(ws,ns)
+
+                        if value > max_value:
+                            max_value = value
+                            max_probe_synset = ws
+                            max_context_synset = ns
+                            max_ic_subsumer = sub
+
+
+
+
+
 
 
 
