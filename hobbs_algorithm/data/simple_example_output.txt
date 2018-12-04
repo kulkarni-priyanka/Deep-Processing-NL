@@ -1,0 +1,14 @@
+He	(S (NP (NNP John)) (VP (V saw) (NP (DT a) (JJ beautiful) (NN car)) (PP (P at) (NP (DT the) (NN dealership))))) (S (NP (PRO He)) (VP (V showed) (NP (PRO it)) (PP (P to) (NP (NNP Bob)))))
+(S (NP (PRO He)) (VP (V showed) (NP (PRO it)) (PP (P to) (NP (NNP Bob)))))
+(S (NP (NNP John)) (VP (V saw) (NP (DT a) (JJ beautiful) (NN car)) (PP (P at) (NP (DT the) (NN dealership)))))
+(NP (NNP John))
+Accept
+Correct
+it	(S (NP (NNP John)) (VP (V saw) (NP (DT a) (JJ beautiful) (NN car)) (PP (P at) (NP (DT the) (NN dealership))))) (S (NP (PRO He)) (VP (V showed) (NP (PRO it)) (PP (P to) (NP (NNP Bob)))))
+(S (NP (PRO He)) (VP (V showed) (NP (PRO it)) (PP (P to) (NP (NNP Bob)))))
+(S (NP (NNP John)) (VP (V saw) (NP (DT a) (JJ beautiful) (NN car)) (PP (P at) (NP (DT the) (NN dealership)))))
+(NP (NNP John))
+Reject  - gender
+(NP (DT a) (JJ beautiful) (NN car))
+Accept
+Correct
