@@ -1,6 +1,17 @@
 import sys
 import time
 import nltk
+from nltk.grammar import Production, Nonterminal
+
+def get_all_pronouns(tree):
+    pronouns_available =[]
+    for production in tree.productions():
+        if (production._lhs== Nonterminal('PRP') or production._lhs== Nonterminal('PossPro')) and type(production._rhs[0]) is str :
+            pronouns_available.append(production._rhs[0])
+    return pronouns_available
+
+    #for production in productions:
+    #    if lhs=Nonterminal('PRP') in pronoun_pos and production.rhs().is
 
 if __name__ == "__main__":
 
@@ -16,34 +27,40 @@ if __name__ == "__main__":
 
     start = time.clock()
 
-    grammar = nltk.data.load(input_grammar_filename,'fcfg')
+    grammar = nltk.data.load(input_grammar_filename,'cfg')
 
     print("Grammar loaded")
 
     # Setting the parser
-    parser = nltk.parse.FeatureEarleyChartParser(grammar)
+    parser = nltk.parse.EarleyChartParser(grammar) #
 
     # Opening the sentence file that needs to be parsed
     sentence_file = open(test_sentence_filename)
 
     sentences = sentence_file.read().split('\n')
     sentence_count = 0
+    sentence_buffer= []
 
     print("Beginning the parsing process")
 
     with open(output_filename, 'w') as op_file:
         for sentence in sentences:
-            if (len(sentence) > 0):
-                # increment number of sentences
-                sentence_count +=1
-
-                sentence = sentence.strip()  # strip extra whitepaces if any
-
-                split_sentence = nltk.word_tokenize(sentence)  # split sentence
-                trees = parser.parse_one(split_sentence)  # parse the sentence
-
-                tree_strings = [""] if not trees else [trees.pformat(margin=sys.maxsize) ]
-                op_file.write('\n'.join(tree_strings) + '\n')
+            sentence = sentence.strip()
+            if len(sentence_buffer) < 3 and len(sentence) >1:
+                sentence_buffer.append(sentence)
+                if len(sentence_buffer) == 2:
+                    sent1 = nltk.word_tokenize(sentence_buffer[0])
+                    sent2 = nltk.word_tokenize(sentence_buffer[1])
+                    trees_sent1 = parser.parse_one(sent1)
+                    trees_sent2 = parser.parse_one(sent2)
+                    all_pronouns = get_all_pronouns(trees_sent2)
+                    for pronoun in all_pronouns:
+                        op_file.write(pronoun+'\t')
+                        op_file.write(trees_sent1.pformat(margin=float("inf"))+' ')
+                        op_file.write(trees_sent2.pformat(margin=float("inf")))
+                        op_file.write('\n')
+                    print(all_pronouns)
+                    sentence_buffer = []
 
         print(str(sentence_count)+" sentences parsed ")
 
