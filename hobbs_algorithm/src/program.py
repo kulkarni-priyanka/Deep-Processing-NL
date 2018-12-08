@@ -10,8 +10,6 @@ def get_all_pronouns(tree):
             pronouns_available.append(production._rhs[0])
     return pronouns_available
 
-    #for production in productions:
-    #    if lhs=Nonterminal('PRP') in pronoun_pos and production.rhs().is
 
 if __name__ == "__main__":
 
@@ -22,7 +20,7 @@ if __name__ == "__main__":
     else:
         input_grammar_filename = '../data/grammar.cfg'
         test_sentence_filename = '../data/coref_sentences.txt'
-        output_filename = '../data/test_output.txt'
+        output_filename = '../data/hw9_output.txt'
         print("Incorrect number of arguments")
 
     start = time.clock()
@@ -38,7 +36,6 @@ if __name__ == "__main__":
     sentence_file = open(test_sentence_filename)
 
     sentences = sentence_file.read().split('\n')
-    sentence_count = 0
     sentence_buffer= []
 
     print("Beginning the parsing process")
@@ -61,10 +58,6 @@ if __name__ == "__main__":
                         op_file.write('\n')
                     print(all_pronouns)
                     sentence_buffer = []
-
-        print(str(sentence_count)+" sentences parsed ")
-
-
 
     print('Parsing complete')
     print("Time taken :" + str(time.clock() - start))

@@ -10,12 +10,12 @@ They	(S (NP (Det The) (Nom (ADJP (Adj immune)) (Nom (NN response)))) (VP (AUX (A
 (S (NP (Det The) (Nom (ADJP (Adj immune)) (Nom (NN response)))) (VP (AUX (AuxZ is)) (VP (VBN alerted) (PP (Prep by) (NP (Nom (ADJP (Adj dendritic)) (Nom (NNS cells))))))) (PUNC .))
 (NP (Det The) (Nom (ADJP (Adj immune)) (Nom (NN response))))
 Reject - number
-NP (Nom (ADJP (Adj dendritic)) (Nom (NNS cells))))
+(NP (Nom (ADJP (Adj dendritic)) (Nom (NNS cells))))
 Accept
 Correct
 
 They	(S (NP (Nom (NNS Scientists))) (VP (VBD rescued) (NP (Det a) (Nom (Nom (NN mouse)) (Nom (ADJP (Adj immune)) (Nom (NN system)))))) (PUNC .)) (S (NP (PRP They)) (VP (VBD restored) (NP (Nom (Nom (NN immunity)) (PP (Prep in) (NP (Nom (NNS mice)))))) (PP (Prep with) (NP (Det a) (Nom (ADJP (Adj weak) (ADJP (Adj immune))) (Nom (NN system)))))) (PUNC .))
-(S (NP (PRP They)) (VP (VBD restored) (NP (Nom (Nom (NN immunity)) (PP (Prep in) (NP (Nom (NNS mice)))))) (PP (Prep with) (NP (Det a) (Nom (ADJP (Adj weak) (ADJP (Adj immune))) (Nom (NN system)))))) (PUNC .))
+(S (NP (PRP They)) (VP (VBD restored) (NP (Nom (Nom (NN immunity)) (PP (Prep in) (NP (Nom (NNS mice)))))) (PP (Prep with) (NP (Det a) (Nom (ADJP (Adj weak)) (Nom (ADJP (Adj immune)) (Nom (NN system))))))) (PUNC .))
 (S (NP (Nom (NNS Scientists))) (VP (VBD rescued) (NP (Det a) (Nom (Nom (NN mouse)) (Nom (ADJP (Adj immune)) (Nom (NN system)))))) (PUNC .))
 (NP (Nom (NNS Scientists)))
 Accept
@@ -23,20 +23,20 @@ Correct
 
 They	(S (NP (Nom (NNS Scientists))) (VP (VBD restored) (NP (Nom (Nom (NN immunity)) (PP (Prep in) (NP (Nom (NNS mice)))))) (PP (Prep with) (NP (Det a) (Nom (ADJP (Adj weak) (ADJP (Adj immune))) (Nom (NN system)))))) (PUNC .)) (S (NP (PRP They)) (VP (VBD injected) (NP (PRP them)) (PP (Prep with) (NP (Det a) (Nom (ADJP (Adj live)) (Nom (NN vaccine)))))) (PUNC .))
 (S (NP (PRP They)) (VP (VBD injected) (NP (PRP them)) (PP (Prep with) (NP (Det a) (Nom (ADJP (Adj live)) (Nom (NN vaccine)))))) (PUNC .))
-(S (NP (Nom (NNS Scientists))) (VP (VBD restored) (NP (Nom (Nom (NN immunity)) (PP (Prep in) (NP (Nom (NNS mice)))))) (PP (Prep with) (NP (Det a) (Nom (ADJP (Adj weak) (ADJP (Adj immune))) (Nom (NN system)))))) (PUNC .))
+(S (NP (Nom (NNS Scientists))) (VP (VBD restored) (NP (Nom (Nom (Nom (NN immunity)) (PP (Prep in) (NP (Nom (NNS mice))))) (PP (Prep with) (NP (Det a) (Nom (ADJP (Adj weak)) (Nom (ADJP (Adj immune)) (Nom (NN system))))))))) (PUNC .))
 (NP (Nom (NNS Scientists)))
 Accept
 Correct
 them	(S (NP (Nom (NNS Scientists))) (VP (VBD restored) (NP (Nom (Nom (NN immunity)) (PP (Prep in) (NP (Nom (NNS mice)))))) (PP (Prep with) (NP (Det a) (Nom (ADJP (Adj weak) (ADJP (Adj immune))) (Nom (NN system)))))) (PUNC .)) (S (NP (PRP They)) (VP (VBD injected) (NP (PRP them)) (PP (Prep with) (NP (Det a) (Nom (ADJP (Adj live)) (Nom (NN vaccine)))))) (PUNC .))
 (S (NP (PRP They)) (VP (VBD injected) (NP (PRP them)) (PP (Prep with) (NP (Det a) (Nom (ADJP (Adj live)) (Nom (NN vaccine)))))) (PUNC .))
-(S (NP (Nom (NNS Scientists))) (VP (VBD restored) (NP (Nom (Nom (NN immunity)) (PP (Prep in) (NP (Nom (NNS mice)))))) (PP (Prep with) (NP (Det a) (Nom (ADJP (Adj weak) (ADJP (Adj immune))) (Nom (NN system)))))) (PUNC .))
+(S (NP (Nom (NNS Scientists))) (VP (VBD restored) (NP (Nom (Nom (Nom (NN immunity)) (PP (Prep in) (NP (Nom (NNS mice))))) (PP (Prep with) (NP (Det a) (Nom (ADJP (Adj weak)) (Nom (ADJP (Adj immune)) (Nom (NN system))))))))) (PUNC .))
 (NP (Nom (NNS Scientists)))
 Accept
-Incorrect - Binding theory, Pronoun/Def. NP: can’t corefer with subject of clause
+Incorrect
 
 They	(S (NP (Nom (NNS Scientists))) (VP (VBD restored) (NP (Nom (Nom (NN immunity)) (PP (Prep in) (NP (Nom (NNS mice)))))) (PP (Prep with) (NP (Det a) (Nom (ADJP (Adj weak) (ADJP (Adj immune))) (Nom (NN system)))))) (PUNC .)) (S (NP (PRP They)) (VP (AUX (AuxZ were)) (VP (VBN compromised) (PP (Prep by) (NP (Nom (NN sepsis)))))) (PUNC .))
 (S (NP (PRP They)) (VP (AUX (AuxZ were)) (VP (VBN compromised) (PP (Prep by) (NP (Nom (NN sepsis)))))) (PUNC .))
-(S (NP (Nom (NNS Scientists))) (VP (VBD restored) (NP (Nom (Nom (NN immunity)) (PP (Prep in) (NP (Nom (NNS mice)))))) (PP (Prep with) (NP (Det a) (Nom (ADJP (Adj weak) (ADJP (Adj immune))) (Nom (NN system)))))) (PUNC .))
+(S (NP (Nom (NNS Scientists))) (VP (VBD restored) (NP (Nom (Nom (Nom (NN immunity)) (PP (Prep in) (NP (Nom (NNS mice))))) (PP (Prep with) (NP (Det a) (Nom (ADJP (Adj weak)) (Nom (ADJP (Adj immune)) (Nom (NN system))))))))) (PUNC .))
 (NP (Nom (NNS Scientists)))
 Accept
-Incorrect - Recency (Prefer closer antecedents)
+Incorrect
